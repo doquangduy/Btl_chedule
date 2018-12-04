@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2018 6:18:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Registration" table="registration" catalog="btl_schedule" optimistic-lock="version">
+        <id name="registerId" type="int">
+            <column name="register_id" />
+            <generator class="assigned" />
+        </id>
+        <many-to-one name="shift" class="entities.Shift" fetch="select">
+            <column name="shift_id" not-null="true" />
+        </many-to-one>
+        <many-to-one name="user" class="entities.User" fetch="select">
+            <column name="user_id" not-null="true" />
+        </many-to-one>
+        <property name="day" type="timestamp">
+            <column name="day" length="19" />
+        </property>
+        <property name="active" type="java.lang.Boolean">
+            <column name="active" />
+        </property>
+        <property name="checkIn" type="timestamp">
+            <column name="check_in" length="19" />
+        </property>
+        <property name="checkOut" type="timestamp">
+            <column name="check_out" length="19" />
+        </property>
+    </class>
+</hibernate-mapping>

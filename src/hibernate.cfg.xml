@@ -46,12 +46,13 @@ Contributor(s):
     <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/btl_schedule?zeroDateTimeBehavior=convertToNull</property>
     <property name="hibernate.connection.username">root</property>
     <property name="hibernate.connection.password">1234</property>
-    <property name="hibernate.current_session_context_class">thread</property>
-    <mapping class="entities.Restaurent"/>
-    <mapping class="entities.Registration"/>
-    <mapping class="entities.User"/>
-    <mapping class="entities.Card"/>
-    <mapping class="entities.RestaurentMaster"/>
-    <mapping class="entities.Shift"/>
+    <property name="show_sql">true</property>
+    <mapping resource="entities/Registration.hbm.xml"/>
+    <mapping resource="entities/Restaurent.hbm.xml"/>
+    <mapping resource="entities/Card.hbm.xml"/>
+    <mapping resource="entities/Admin.hbm.xml"/>
+    <mapping resource="entities/Shift.hbm.xml"/>
+    <mapping resource="entities/User.hbm.xml"/>
+    <mapping resource="entities/RestaurentMaster.hbm.xml"/>
   </session-factory>
 </hibernate-configuration>

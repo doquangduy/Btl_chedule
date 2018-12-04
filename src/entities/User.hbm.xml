@@ -1,0 +1,48 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2018 6:18:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.User" table="user" catalog="btl_schedule" optimistic-lock="version">
+        <id name="userId" type="java.lang.Integer">
+            <column name="user_id" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="restaurent" class="entities.Restaurent" fetch="select">
+            <column name="restaurent_id" not-null="true" />
+        </many-to-one>
+        <property name="numberPhone" type="string">
+            <column name="number_phone" length="45" />
+        </property>
+        <property name="email" type="string">
+            <column name="email" length="45" />
+        </property>
+        <property name="address" type="string">
+            <column name="address" length="245" />
+        </property>
+        <property name="fullName" type="string">
+            <column name="full_name" length="45" />
+        </property>
+        <property name="coefficient" type="java.lang.Float">
+            <column name="coefficient" precision="12" scale="0" />
+        </property>
+        <property name="createAt" type="date">
+            <column name="create_at" length="10" />
+        </property>
+        <property name="updateAt" type="date">
+            <column name="update_at" length="10" />
+        </property>
+        <set name="registrations" table="registration" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="entities.Registration" />
+        </set>
+        <set name="cards" table="card" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="user_id" not-null="true" />
+            </key>
+            <one-to-many class="entities.Card" />
+        </set>
+    </class>
+</hibernate-mapping>

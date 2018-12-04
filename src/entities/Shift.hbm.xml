@@ -1,0 +1,21 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated Dec 15, 2018 6:18:31 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="entities.Shift" table="shift" catalog="btl_schedule" optimistic-lock="version">
+        <id name="shiftId" type="java.lang.Integer">
+            <column name="shift_id" />
+            <generator class="identity" />
+        </id>
+        <property name="shiftType" type="java.lang.Integer">
+            <column name="shift_type" />
+        </property>
+        <set name="registrations" table="registration" inverse="true" lazy="true" fetch="select">
+            <key>
+                <column name="shift_id" not-null="true" />
+            </key>
+            <one-to-many class="entities.Registration" />
+        </set>
+    </class>
+</hibernate-mapping>

@@ -41,10 +41,11 @@ Contributor(s):
 -->
 <hibernate-reverse-engineering>
   <schema-selection match-catalog="btl_schedule"/>
+  <table-filter match-name="registration"/>
+  <table-filter match-name="restaurent_master"/>
+  <table-filter match-name="card"/>
   <table-filter match-name="shift"/>
   <table-filter match-name="restaurent"/>
   <table-filter match-name="user"/>
-  <table-filter match-name="restaurent_master"/>
-  <table-filter match-name="registration"/>
-  <table-filter match-name="card"/>
+  <table-filter match-name="admin"/>
 </hibernate-reverse-engineering>
